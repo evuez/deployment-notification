@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "postDeploy": "./clevercloud/notify-slack"
+  }
+}
+

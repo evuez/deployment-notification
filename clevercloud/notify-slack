@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+curl -X POST --data-urlencode "payload={\"text\": \"Successfully deployed $SERVER_NAME\"}" $SLACK_WEBHOOK_URL
+
