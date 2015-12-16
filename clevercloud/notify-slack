@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
 
-curl -X POST --data-urlencode "payload={\"text\": \"Successfully deployed $SERVER_NAME\"}" $SLACK_WEBHOOK_URL
 
+payload="{\"attachments\": [{
+    \"fallback\": \"Successful deployment!\",
+    \"color\": \"#41aa58\",
+    \"text\": \"Successful deployment!\",
+    \"fields\": [{
+        \"title\": \"Application\",
+        \"value\": \"$SERVER_NAME\",
+        \"short\": false
+    }]
+}]}"
+
+curl -X POST --data-urlencode "payload=$payload"  $SLACK_WEBHOOK_URL
