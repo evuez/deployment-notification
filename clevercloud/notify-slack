@@ -8,8 +8,12 @@ payload="{\"attachments\": [{
     \"fields\": [{
         \"title\": \"Application\",
         \"value\": \"$SERVER_NAME\",
-        \"short\": false
+        \"short\": true
+    }, {
+        \"title\": \"Author\",
+        \"value\": \"$(git log -1 --pretty=%an)\",
+        \"short\": true
     }]
 }]}"
 
-curl -X POST --data-urlencode "payload=$payload"  $SLACK_WEBHOOK_URL
+curl -X POST --data-urlencode "payload=$payload" $SLACK_WEBHOOK_URL
