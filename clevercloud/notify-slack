@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
 
-payload="{\"attachments\": [{
-    \"fallback\": \"Successful deployment!\",
-    \"color\": \"#41aa58\",
-    \"text\": \"Successful deployment!\",
-    \"fields\": [{
-        \"title\": \"Application\",
-        \"value\": \"$SERVER_NAME\",
-        \"short\": true
-    }, {
-        \"title\": \"Author\",
-        \"value\": \"$(git log -1 --pretty=%an)\",
-        \"short\": true
+payload="{
+    \"username\": \"clevercloud\",
+    \"icon_url\": \"https://avatars3.githubusercontent.com/u/357022?v=3&s=36\",
+    \"attachments\": [{
+        \"fallback\": \"Successful deployment!\",
+        \"color\": \"#41aa58\",
+        \"text\": \"Successful deployment!\",
+        \"fields\": [{
+            \"title\": \"Application\",
+            \"value\": \"$SERVER_NAME\",
+            \"short\": true
+        }, {
+            \"title\": \"Author\",
+            \"value\": \"$(git log -1 --pretty=%an)\",
+            \"short\": true
+        }]
     }]
-}]}"
+}"
 
 curl -X POST --data-urlencode "payload=$payload" $SLACK_WEBHOOK_URL
